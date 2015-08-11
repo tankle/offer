@@ -153,6 +153,27 @@ public:
         return arr;
     }
 
+    /**
+     * 冒泡排序算法的优化1
+     *
+     * 设置一个标志flag，当某一趟完全没有进行交换，就不需要进行下一轮的排序
+     */
+    vector<int> BubbleSort1(vector<int> arr){
+        bool flag = true;
+        int k = arr.size();
+        while(flag && k >0 ) {
+            flag = false;
+            for (int i = 1; i < k; i++) {
+                if (arr[i] < arr[i - 1]) {
+                    swap(arr[i], arr[i - 1]);
+                    flag = true;
+                }
+            }
+            k--;
+        }
+        return arr;
+    }
+
 
     /**
      * 快速排序
@@ -307,6 +328,10 @@ void testSort(){
         end = Clock::now();
         cout<<"BubbleSort\t" <<std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count()<<endl;
 
+        start = Clock::now();
+        vector<int> bubble1 = s.BubbleSort1(test);
+        end = Clock::now();
+        cout<<"BubbleSort1\t" <<std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count()<<endl;
 
         start = Clock::now();
         vector<int> merge = s.MergeSort(test);
@@ -323,6 +348,7 @@ void testSort(){
         testEqual(test, shell,"shell");
         testEqual(test, select, "select");
         testEqual(test, bubble,"bubble");
+        testEqual(test, bubble1,"bubble");
         testEqual(test, quick, "quick");
         testEqual(test, merge,"merge");
         testEqual(test, heap,"heap");

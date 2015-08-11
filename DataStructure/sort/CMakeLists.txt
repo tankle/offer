@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.2)
-project(DataStructure)
+project(sort)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
@@ -13,5 +13,7 @@ IF (Boost_FOUND)
     ADD_DEFINITIONS( "-DHAS_BOOST" )
 ENDIF()
 
-set(SOURCE_FILES main.cpp)
-add_executable(DataStructure ${SOURCE_FILES})
+set(SOURCE_FILES
+    main.cpp)
+
+add_executable(sort ${SOURCE_FILES})
