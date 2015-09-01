@@ -1,10 +1,12 @@
 #include <iostream>
-
+#include <vector>
+#include <queue>
+#include <string>
+//#include <cstring>
 using namespace std;
 
 
 int main()
 {
-    cout<<"Hello world"<<endl;
     return 0;
 }
